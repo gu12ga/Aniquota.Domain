@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+    <h1>Login</h1>
+
+    @if (!string.IsNullOrEmpty(ViewBag.MensagemErro))
+    {
+            <div class="alert alert-danger">
+            @ViewBag.MensagemErro
+            </div>
+    }
+
+    <form method="get" action="/Cliente/Login">
+        <label for="cpf">CPF:</label>
+        <input type="text" name="cpf" required>
+        <br>
+
+        <label for="senha">Senha:</label>
+        <input type="password" name="senha" required>
+        <br>
+
+        <input type="submit" value="Entrar">
+    </form>
+</body>
+</html>
+
