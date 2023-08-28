@@ -105,7 +105,6 @@ namespace Aniquota.Domain.Controllers
                     return NotFound("Cliente não encontrado.");
                 }
 
-                // Atualiza as informações do cliente com os novos valores
                 cliente.CPF = cpf;
                 cliente.Nome = nome;
                 cliente.Senha = senha;
@@ -125,18 +124,18 @@ namespace Aniquota.Domain.Controllers
         public IActionResult InicialView()
         {
 
-            // Simule a obtenção das listas (substitua com suas lógicas de negócio)
+            
             List<AplicaProdutoClienteModel> lista1 = aplicaController.ListaCliente(HttpContext.Session);
             List<Produto> lista2 = produtoController.ListaProduto();
 
-            // Crie o ViewModel e preencha com as listas
+            
             MinhaPaginaViewModel viewModel = new MinhaPaginaViewModel
             {
                 Lista1 = lista1,
                 Lista2 = lista2
             };
 
-            // Retorne a view com o ViewModel
+            
             return View(viewModel);
             
         }
@@ -158,28 +157,23 @@ namespace Aniquota.Domain.Controllers
 
                 if (cliente == null)
                 {
-                    //ViewBag.MensagemErro = "Credenciais inválidas. Tente novamente.";
-                    //return LoginView();
+
                     return NotFound("Credenciais inválidas. Tente novamente.");
                 }
 
                 if (cliente.Senha != senha)
                 {
-                    //ViewBag.MensagemErro = "Senha inválida. Tente novamente.";
-                    //return LoginView();
+
                     return NotFound("Senha inválida. Tente novamente.");
                 }
 
-                // Salve o idCliente na sessão
                 HttpContext.Session.SetString(SessionKey, cliente.IdCliente.ToString());
 
                 return RedirectToAction("InicialView", "Cliente");
 
-
         }
 
         }
-
 
 
     }

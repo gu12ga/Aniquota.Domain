@@ -18,7 +18,7 @@ namespace Aniquota.Domain.Controllers
             using (var contexto = new Contexto())
             {
                 return contexto.aplicaprodutoclientemodel
-                    .Where(a => a.IdCliente == 1 /*Convert.ToInt32(idCliente)*/)
+                    .Where(a => a.IdCliente == 1)
                     .ToList();
 
             }

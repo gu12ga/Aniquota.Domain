@@ -14,12 +14,12 @@ namespace Aniquota.Domain
         public DbSet<Telefone> Telefone { get; set; }
         public DbSet<AplicaProdutoClienteModel> aplicaprodutoclientemodel { get; set; }
 
-        protected override void OnConfiguring(/*EF.*/DbContextOptionsBuilder optionsBuilder)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseMySQL("server=localhost;database=aniquota;user=root;password=GustavoGabriel10");
         }
 
-        protected override void OnModelCreating(/*EF.*/ModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 

@@ -122,13 +122,8 @@ VALUES(1, 1, 100, NOW())");
 select C.IdCliente, P.IdProduto, P.Nome, P.Rendimento, A.ValorAplicado, A.ValorAplicado*(1+P.Rendimento*TIMESTAMPDIFF(SECOND, A.DataAplica, NOW())) AS ValorAtual, A.DataAplica
 from aplica A join cliente C on A.IdCliente = C.IdCliente join produto P on P.IdProduto = A.IdProduto");
         
-            /*grationBuilder.Sql(@"INSERT INTO cliente(IdCliente, CPF, Nome, Senha, Email)
-VALUES(1, '12345678901', 'Nome do Cliente', 'Senha123', 'cliente@email.com')");
-        */
             }
-    
 
-        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
